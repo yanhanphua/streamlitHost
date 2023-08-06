@@ -63,10 +63,10 @@ columns_to_replace = ['Strategy', 'Nudity', 'Action', 'Software Training',
 # Replace boolean values in the specified columns
 df[columns_to_replace] = df[columns_to_replace].replace(replacement_mapping)
 machine_learning_dataframe= df.copy()
-columns_to_drop = ['appid','name','release_date','developer','publisher','platforms','categories','genres','steamspy_tags','achievements','owners']
+columns_to_drop = ['appid','name','release_date','developer','publisher','platforms','categories','genres','steamspy_tags','achievements','owners Edited']
 machine_learning_dataframe.drop(columns=columns_to_drop, inplace=True)
-X = machine_learning_dataframe.drop('owners Edited',axis=1)
-y = machine_learning_dataframe['owners Edited']
+X = machine_learning_dataframe.drop('owners',axis=1)
+y = machine_learning_dataframe['owners']
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.3, random_state=42)
 clf_forest = RandomForestClassifier(n_estimators=100)
 clf_forest.fit(X_train, y_train)
